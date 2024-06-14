@@ -51,5 +51,20 @@
     .form__btn-icon path {
       fill: $pg-neon-green;
     }
+
+    .form__btn-icon {
+      animation: moveRight 0.3s ease-in-out infinite alternate;
+      transition: transform 0.3s ease;
+      margin-left: 1rem;
+    }
+  }
+}
+
+@keyframes moveRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(10px);
   }
 }
