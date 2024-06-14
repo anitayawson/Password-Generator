@@ -4,7 +4,9 @@
 
 html,
 body,
-button {
+button,
+input,
+p {
   box-sizing: border-box;
   margin: 0;
   font-family: "JetBrains Mono", "Source Code Pro", "Courier New", monospace,
@@ -15,6 +17,106 @@ button {
   }
 }
 
-.App {
+html {
+  background-color: #08070b;
+}
+
+.app {
   text-align: center;
+  margin-top: 4rem;
+
+  &__title {
+    color: $pg-grey;
+    @include body;
+  }
+}
+
+.form {
+  margin: 1rem;
+
+  &__output-section {
+    position: relative;
+  }
+
+  &__password-output {
+    background-color: $pg-dark-grey;
+    border: none;
+    color: $pg-off-white;
+    padding: 1rem;
+    width: 100%;
+    @include medium-heading;
+
+    &::placeholder {
+      color: $pg-off-white;
+      opacity: 0.25;
+    }
+  }
+
+  &__copy-icon {
+    position: absolute;
+    top: 32%;
+    right: 1rem;
+    width: 17.5px;
+  }
+
+  &__main-content {
+    background-color: $pg-dark-grey;
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+
+  &__btn {
+    @include btn;
+
+    svg {
+      margin-left: 1rem;
+    }
+  }
+}
+
+.char-length {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__text {
+    color: $pg-off-white;
+    font-size: 1rem;
+  }
+
+  &__number {
+    color: $pg-neon-green;
+    @include medium-heading;
+  }
+}
+
+.checklist {
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 2rem;
+
+  &__item-label {
+    color: $pg-off-white;
+  }
+}
+
+.password-strength {
+  background-color: $pg-grey-black;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.875rem 1rem;
+
+  p {
+    text-transform: uppercase;
+    color: $pg-grey;
+  }
+
+  div {
+    color: $pg-off-white;
+    @include body;
+    text-transform: uppercase;
+  }
 }

@@ -1,77 +1,82 @@
 import "./App.scss";
+import Slider from "@mui/material/Slider";
+import Checkbox from "@mui/material/Checkbox";
+import CopyIcon from "./assets/images/icon-copy.svg";
+import CheckIcon from "./assets/images/icon-check.svg";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Password Generator</h1>
+    <div className="app">
+      <header className="app__header">
+        <h1 className="app__title">Password Generator</h1>
       </header>
       <main>
-        <form>
-          <input
-            type="text"
-            placeholder="P4$5W0rD!"
-            aria-label="Generated Password"
-          />
-          <article>
-            <div>
-              <p>Character Length</p>
-              <h2>0</h2>
+        <form className="form">
+          <section className="form__output-section">
+            <input
+              className="form__password-output"
+              type="text"
+              placeholder="P4$5W0rD!"
+              aria-label="Generated Password"
+              disabled
+            />
+            <img src={CopyIcon} alt="copy" className="form__copy-icon" />
+          </section>
+          <article className="form__main-content">
+            <div className="char-length">
+              <p className="char-length__text">Character Length</p>
+              <h2 className="char-length__number">0</h2>
             </div>
-            <hr />
-            <section>
-              <div>
-                <label htmlFor="uppercase">
-                  <input
-                    type="checkbox"
-                    id="uppercase"
-                    name="uppercase"
-                    value="Uppercase"
-                  />
-                  Include Uppercase Letters
-                </label>
-              </div>
-              <div>
-                <label htmlFor="lowercase">
-                  <input
-                    type="checkbox"
-                    id="lowercase"
-                    name="lower"
-                    value="Lowercase"
-                  />
-                  Include Lowercase Letters
-                </label>
-              </div>
-              <div>
-                <label>
-                  <input
-                    type="checkbox"
-                    id="numbers"
-                    name="numbers"
-                    value="Numbers"
-                  />
-                  Include Numbers
-                </label>
-              </div>
-              <div>
-                <label>
-                  <input
-                    type="checkbox"
-                    id="symbols"
-                    name="symbols"
-                    value="Symbols"
-                  />
-                  Include Symbols
-                </label>
-              </div>
+            <div className="char-length__slider">
+              <Slider
+                aria-label="Temperature"
+                defaultValue={10}
+                // getAriaValueText={valuetext}
+                valueLabelDisplay="auto"
+                shiftStep={30}
+                step={1}
+                marks={false}
+                min={1}
+                max={20}
+              />
+            </div>
+            <section className="checklist">
+              <label htmlFor="uppercase" className="checklist__item-label">
+                <Checkbox defaultChecked />
+                Include Uppercase Letters
+              </label>
+              <label htmlFor="lowercase" className="checklist__item-label">
+                <Checkbox defaultChecked />
+                Include Lowercase Letters
+              </label>
+              <label htmlFor="numbers" className="checklist__item-label">
+                <Checkbox defaultChecked />
+                Include Numbers
+              </label>
+              <label htmlFor="symbols" className="checklist__item-label">
+                <Checkbox />
+                Include Symbols
+              </label>
             </section>
-
-            <section>
+            <section className="password-strength">
               <p>Strength</p>
               <div>Medium</div>
             </section>
 
-            <button type="submit">Generate</button>
+            <button className="form__btn" type="submit">
+              Generate
+              <svg
+                width="12"
+                height="12"
+                xmlns="http://www.w3.org/2000/svg"
+                className="form__btn-icon"
+              >
+                <path
+                  fill="#24232C"
+                  d="m5.106 12 6-6-6-6-1.265 1.265 3.841 3.84H.001v1.79h7.681l-3.841 3.84z"
+                />
+              </svg>
+            </button>
           </article>
         </form>
       </main>

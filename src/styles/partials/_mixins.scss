@@ -16,22 +16,40 @@
   font-size: 2rem;
   font-weight: bold;
   line-height: 2.6875rem;
+  margin: 0;
 }
 
 @mixin medium-heading {
   font-size: 1.5rem;
   font-weight: bold;
   line-height: 1.9375rem;
+  margin: 0;
 }
 
 @mixin body {
   font-size: 1.125rem;
   font-weight: bold;
   line-height: 1.4375rem;
+  margin: 0;
 }
 
 @mixin btn {
   background-color: $pg-neon-green;
   color: $pg-dark-grey;
+  border: none;
+  text-transform: uppercase;
+  padding: 1.125rem;
+  font-size: 1rem;
   width: 100%;
+  cursor: pointer;
+
+  &:hover {
+    border: 2px solid $pg-neon-green;
+    background-color: transparent;
+    color: $pg-neon-green;
+
+    .form__btn-icon path {
+      fill: $pg-neon-green;
+    }
+  }
 }
