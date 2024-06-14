@@ -18,8 +18,10 @@ export default function Checklist() {
           className="checklist__item-label"
         >
           <Checkbox
+            className="checklist__icon"
             defaultChecked={item.defaultChecked}
-            style={{ color: "#a4ffaf" }}
+            style={{ color: "#a4ffaf", padding: 0 }}
+            sx={{ "& .MuiSvgIcon-root": { fontSize: 24 } }}
           />
 
           {item.label}

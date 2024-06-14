@@ -6,15 +6,26 @@
   display: flex;
   flex-direction: column;
   text-align: left;
-  margin-bottom: 2rem;
+  margin: 1rem 0 2rem;
+  gap: 1rem;
 
   @include tablet {
-    margin-top: 0.75rem;
     @include body;
     margin-bottom: 2rem;
+    margin-top: 1.25rem;
   }
 
   &__item-label {
     color: $pg-off-white;
+    display: flex;
+    align-items: center;
+
+    span {
+      margin-right: 1rem;
+
+      @include tablet {
+        margin-right: 1.5rem;
+      }
+    }
   }
 }

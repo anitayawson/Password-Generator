@@ -26,19 +26,35 @@ function App() {
               <p className="char-length__text">Character Length</p>
               <h2 className="char-length__number">0</h2>
             </div>
-            <div className="char-length__slider">
-              <Slider
-                aria-label="Temperature"
-                defaultValue={10}
-                // getAriaValueText={valuetext}
-                valueLabelDisplay="auto"
-                shiftStep={30}
-                step={1}
-                marks={false}
-                min={1}
-                max={20}
-              />
-            </div>
+            <Slider
+              aria-label="Character Length"
+              defaultValue={10}
+              // getAriaValueText={valuetext}
+              valueLabelDisplay="off"
+              shiftStep={30}
+              step={1}
+              marks={false}
+              min={1}
+              max={20}
+              sx={{
+                "& .MuiSlider-rail": {
+                  height: 8,
+                  borderRadius: 0,
+                  backgroundColor: "#18171f",
+                },
+                "& .MuiSlider-track": {
+                  height: 8,
+                  borderRadius: 0,
+                  border: "none",
+                  backgroundColor: "#a4ffaf",
+                },
+                "& .MuiSlider-thumb": {
+                  backgroundColor: "#e6e5ea",
+                  width: 28,
+                  height: 28,
+                },
+              }}
+            />
             <Checklist />
             <section className="password-strength">
               <p>Strength</p>
