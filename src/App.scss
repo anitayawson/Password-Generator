@@ -25,14 +25,26 @@ html {
   text-align: center;
   margin-top: 4rem;
 
+  @include tablet {
+    margin-top: 8rem;
+  }
+
   &__title {
     color: $pg-grey;
     @include body;
+
+    @include tablet {
+      @include medium-heading;
+    }
   }
 }
 
 .form {
   margin: 1rem;
+
+  @include tablet {
+    margin: 2rem 7.125rem 12.25rem;
+  }
 
   &__output-section {
     position: relative;
@@ -50,6 +62,10 @@ html {
       color: $pg-off-white;
       opacity: 0.25;
     }
+
+    @include tablet {
+      padding: 1.1875rem 2rem;
+    }
   }
 
   &__copy-icon {
@@ -57,12 +73,22 @@ html {
     top: 32%;
     right: 1rem;
     width: 17.5px;
+
+    @include tablet {
+      right: 1.75rem;
+      width: 21px;
+    }
   }
 
   &__main-content {
     background-color: $pg-dark-grey;
     padding: 1rem;
     margin-top: 1rem;
+
+    @include tablet {
+      margin-top: 1.5rem;
+      padding: 1.5rem 2rem 2rem;
+    }
   }
 
   &__btn {
@@ -79,14 +105,26 @@ html {
   justify-content: space-between;
   align-items: center;
 
+  @include tablet {
+    margin-bottom: 0.5rem;
+  }
+
   &__text {
     color: $pg-off-white;
     font-size: 1rem;
+
+    @include tablet {
+      @include body;
+    }
   }
 
   &__number {
     color: $pg-neon-green;
     @include medium-heading;
+
+    @include tablet {
+      @include large-heading;
+    }
   }
 }
 
@@ -96,6 +134,10 @@ html {
   flex-direction: column;
   text-align: left;
   margin-bottom: 2rem;
+
+  @include tablet {
+    margin-top: 0.75rem;
+  }
 
   &__item-label {
     color: $pg-off-white;
