@@ -1,8 +1,7 @@
 import "./App.scss";
 import Slider from "@mui/material/Slider";
-import Checkbox from "@mui/material/Checkbox";
 import CopyIcon from "./assets/images/icon-copy.svg";
-import CheckIcon from "./assets/images/icon-check.svg";
+import Checklist from "./components/Checklist/Checklist";
 
 function App() {
   return (
@@ -40,24 +39,7 @@ function App() {
                 max={20}
               />
             </div>
-            <section className="checklist">
-              <label htmlFor="uppercase" className="checklist__item-label">
-                <Checkbox defaultChecked />
-                Include Uppercase Letters
-              </label>
-              <label htmlFor="lowercase" className="checklist__item-label">
-                <Checkbox defaultChecked />
-                Include Lowercase Letters
-              </label>
-              <label htmlFor="numbers" className="checklist__item-label">
-                <Checkbox defaultChecked />
-                Include Numbers
-              </label>
-              <label htmlFor="symbols" className="checklist__item-label">
-                <Checkbox />
-                Include Symbols
-              </label>
-            </section>
+            <Checklist />
             <section className="password-strength">
               <p>Strength</p>
               <div>Medium</div>

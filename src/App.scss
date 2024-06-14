@@ -132,24 +132,6 @@ html {
   }
 }
 
-.checklist {
-  font-size: 1rem;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  margin-bottom: 2rem;
-
-  @include tablet {
-    margin-top: 0.75rem;
-    @include body;
-    margin-bottom: 2rem;
-  }
-
-  &__item-label {
-    color: $pg-off-white;
-  }
-}
-
 .password-strength {
   background-color: $pg-grey-black;
   margin-bottom: 1rem;

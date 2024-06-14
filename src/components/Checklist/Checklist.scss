@@ -1,0 +1,20 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.checklist {
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 2rem;
+
+  @include tablet {
+    margin-top: 0.75rem;
+    @include body;
+    margin-bottom: 2rem;
+  }
+
+  &__item-label {
+    color: $pg-off-white;
+  }
+}
