@@ -75,8 +75,16 @@ html {
   &__copy-icon {
     position: absolute;
     top: 32%;
-    right: 1rem;
+    right: 1.5rem;
     width: 17.5px;
+
+    &:hover {
+      cursor: pointer;
+
+      path {
+        fill: white;
+      }
+    }
 
     @include tablet {
       right: 1.75rem;
