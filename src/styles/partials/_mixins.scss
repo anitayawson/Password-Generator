@@ -43,6 +43,10 @@
   width: 100%;
   cursor: pointer;
 
+  @include tablet {
+    @include body;
+  }
+
   &:hover {
     border: 2px solid $pg-neon-green;
     background-color: transparent;

@@ -46,6 +46,10 @@ html {
     margin: 2rem 7.125rem 12.25rem;
   }
 
+  @include desktop {
+    margin: 2rem 28rem 12.25rem;
+  }
+
   &__output-section {
     position: relative;
   }
@@ -137,6 +141,8 @@ html {
 
   @include tablet {
     margin-top: 0.75rem;
+    @include body;
+    margin-bottom: 2rem;
   }
 
   &__item-label {
@@ -151,14 +157,27 @@ html {
   justify-content: space-between;
   padding: 0.875rem 1rem;
 
+  @include tablet {
+    padding: 1.25rem 2rem;
+    margin-bottom: 2rem;
+  }
+
   p {
     text-transform: uppercase;
     color: $pg-grey;
+
+    @include tablet {
+      @include body;
+    }
   }
 
   div {
     color: $pg-off-white;
     @include body;
     text-transform: uppercase;
+
+    @include tablet {
+      @include medium-heading;
+    }
   }
 }
