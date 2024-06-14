@@ -1,0 +1,31 @@
+@use "./variables" as *;
+
+@mixin tablet {
+  @media screen and (min-width: $tablet-breakpoint) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}
+
+@mixin large-heading {
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 2.6875rem;
+}
+
+@mixin medium-heading {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.9375rem;
+}
+
+@mixin body {
+  font-size: 1.125rem;
+  font-weight: bold;
+  line-height: 1.4375rem;
+}
