@@ -5,6 +5,7 @@ import Checklist from "./components/Checklist/Checklist";
 import StrengthBars from "./components/StrengthBars/StrengthBars";
 
 function App() {
+  const [charLength, setCharLength] = useState(5);
   // const [password, setPassword] = useState("");
   // const [strength, setStrength] = useState("");
 
@@ -59,18 +60,18 @@ function App() {
           <article className="form__main-content">
             <div className="char-length">
               <p className="char-length__text">Character Length</p>
-              <h2 className="char-length__number">0</h2>
+              <h2 className="char-length__number">{charLength}</h2>
             </div>
             <Slider
               aria-label="Character Length"
-              defaultValue={10}
-              // getAriaValueText={valuetext}
+              defaultValue={5}
               valueLabelDisplay="off"
-              shiftStep={30}
               step={1}
               marks={false}
               min={1}
               max={20}
+              value={charLength}
+              onChange={(e, value) => setCharLength(value)}
               sx={{
                 "& .MuiSlider-rail": {
                   height: 8,
