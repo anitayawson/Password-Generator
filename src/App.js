@@ -53,8 +53,8 @@ function App() {
   const handleGeneratePassword = (event) => {
     event.preventDefault();
     const newPassword = generatePassword();
-    setPassword(generatePassword);
-    calculateStrength(generatePassword);
+    setPassword(newPassword);
+    calculateStrength(newPassword);
   };
 
   return (

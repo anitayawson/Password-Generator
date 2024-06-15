@@ -26,6 +26,7 @@ export default function Checklist({ checklist, setChecklist }) {
           className="checklist__item-label"
         >
           <Checkbox
+            id={item.id}
             className="checklist__icon"
             checked={checklist[item.id]}
             onChange={handleChange}
