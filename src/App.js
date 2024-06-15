@@ -6,29 +6,56 @@ import StrengthBars from "./components/StrengthBars/StrengthBars";
 
 function App() {
   const [charLength, setCharLength] = useState(5);
-  // const [password, setPassword] = useState("");
-  // const [strength, setStrength] = useState("");
+  const [checklist, setChecklist] = useState({
+    uppercase: false,
+    lowercase: true,
+    numbers: true,
+    symbols: false,
+  });
+  const [password, setPassword] = useState("");
+  const [strength, setStrength] = useState("");
 
-  // const calculateStrength = (password) => {
-  //   let strengthLevel = 0;
-  //   if (password.length > 7) strengthLevel++;
-  //   if (/[A-Z]/.test(password)) strengthLevel++;
-  //   if (/[a-z]/.test(password)) strengthLevel++;
-  //   if (/[0-9]/.test(password)) strengthLevel++;
-  //   if (/[^A-Za-z0-9]/.test(password)) strengthLevel++;
+  const calculateStrength = (password) => {
+    let strengthLevel = 0;
+    if (password.length > 7) strengthLevel++;
+    if (/[A-Z]/.test(password)) strengthLevel++;
+    if (/[a-z]/.test(password)) strengthLevel++;
+    if (/[0-9]/.test(password)) strengthLevel++;
+    if (/[^A-Za-z0-9]/.test(password)) strengthLevel++;
 
-  //   if (strengthLevel === 1) setStrength("Too Weak!");
-  //   else if (strengthLevel === 2) setStrength("Weak");
-  //   else if (strengthLevel === 3) setStrength("Medium");
-  //   else if (strengthLevel >= 4) setStrength("Strong");
-  //   else setStrength("");
-  // };
+    if (strengthLevel === 1) setStrength("Too Weak!");
+    else if (strengthLevel === 2) setStrength("Weak");
+    else if (strengthLevel === 3) setStrength("Medium");
+    else if (strengthLevel >= 4) setStrength("Strong");
+    else setStrength("");
+  };
 
-  // const handleGeneratePassword = (event) => {
-  //   const generatedPassword = "";
-  //   setPassword(generatedPassword);
-  //   calculateStrength(generatedPassword);
-  // };
+  const generatePassword = () => {
+    const upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
+    const numbers = "0123456789";
+    const symbols = "!@#$%^&*()_+~`|}{[]:;?><,./-=";
+    let characters = "";
+
+    if (checklist.uppercase) characters += upperCaseLetters;
+    if (checklist.lowercase) characters += lowerCaseLetters;
+    if (checklist.numbers) characters += numbers;
+    if (checklist.symbols) characters += symbols;
+
+    let generatedPassword = "";
+    for (let i = 0; i < charLength; i++) {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      generatedPassword += characters[randomIndex];
+    }
+    return generatedPassword;
+  };
+
+  const handleGeneratePassword = (event) => {
+    event.preventDefault();
+    const newPassword = generatePassword();
+    setPassword(generatePassword);
+    calculateStrength(generatePassword);
+  };
 
   return (
     <div className="app">
@@ -36,11 +63,12 @@ function App() {
         <h1 className="app__title">Password Generator</h1>
       </header>
       <main>
-        <form className="form">
+        <form className="form" onSubmit={handleGeneratePassword}>
           <section className="form__output-section">
             <input
               className="form__password-output"
               type="text"
+              value={password}
               placeholder="P4$5W0rD!"
               aria-label="Generated Password"
               disabled
@@ -64,7 +92,6 @@ function App() {
             </div>
             <Slider
               aria-label="Character Length"
-              defaultValue={5}
               valueLabelDisplay="off"
               step={1}
               marks={false}
@@ -95,10 +122,10 @@ function App() {
                 },
               }}
             />
-            <Checklist />
+            <Checklist checklist={checklist} setChecklist={setChecklist} />
             <section className="password-strength">
               <p>Strength</p>
-              <StrengthBars />
+              <StrengthBars strength={strength} />
             </section>
 
             <button className="form__btn" type="submit">

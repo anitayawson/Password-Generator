@@ -2,13 +2,21 @@ import "./Checklist.scss";
 import Checkbox from "@mui/material/Checkbox";
 
 const checklistData = [
-  { id: "uppercase", label: "Include Uppercase Letters", defaultChecked: true },
-  { id: "lowercase", label: "Include Lowercase Letters", defaultChecked: true },
-  { id: "numbers", label: "Include Numbers", defaultChecked: true },
-  { id: "symbols", label: "Include Symbols", defaultChecked: false },
+  { id: "uppercase", label: "Include Uppercase Letters" },
+  { id: "lowercase", label: "Include Lowercase Letters" },
+  { id: "numbers", label: "Include Numbers" },
+  { id: "symbols", label: "Include Symbols" },
 ];
 
-export default function Checklist() {
+export default function Checklist({ checklist, setChecklist }) {
+  const handleChange = (event) => {
+    const { id, checked } = event.target;
+    setChecklist((prev) => ({
+      ...prev,
+      [id]: checked,
+    }));
+  };
+
   return (
     <section className="checklist">
       {checklistData.map((item) => (
@@ -19,7 +27,8 @@ export default function Checklist() {
         >
           <Checkbox
             className="checklist__icon"
-            defaultChecked={item.defaultChecked}
+            checked={checklist[item.id]}
+            onChange={handleChange}
             style={{ color: "#a4ffaf", padding: 0 }}
             sx={{ "& .MuiSvgIcon-root": { fontSize: 24 } }}
           />

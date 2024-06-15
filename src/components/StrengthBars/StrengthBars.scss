@@ -26,4 +26,21 @@
   border: 2px solid $pg-off-white;
   width: 0.625rem;
   height: 1.75rem;
+
+  &.too-weak {
+    background-color: $pg-red;
+    border: none;
+  }
+  &.weak {
+    background-color: $pg-orange;
+    border: none;
+  }
+  &.medium {
+    background-color: $pg-yellow;
+    border: none;
+  }
+  &.strong {
+    background-color: $pg-neon-green;
+    border: none;
+  }
 }
