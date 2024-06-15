@@ -145,6 +145,7 @@ html {
   margin-bottom: 1rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 0.875rem 1rem;
 
   @include tablet {
@@ -158,16 +159,6 @@ html {
 
     @include tablet {
       @include body;
-    }
-  }
-
-  div {
-    color: $pg-off-white;
-    @include body;
-    text-transform: uppercase;
-
-    @include tablet {
-      @include medium-heading;
     }
   }
 }

@@ -1,8 +1,34 @@
+import { useState } from "react";
 import "./App.scss";
 import Slider from "@mui/material/Slider";
 import Checklist from "./components/Checklist/Checklist";
+import StrengthBars from "./components/StrengthBars/StrengthBars";
 
 function App() {
+  // const [password, setPassword] = useState("");
+  // const [strength, setStrength] = useState("");
+
+  // const calculateStrength = (password) => {
+  //   let strengthLevel = 0;
+  //   if (password.length > 7) strengthLevel++;
+  //   if (/[A-Z]/.test(password)) strengthLevel++;
+  //   if (/[a-z]/.test(password)) strengthLevel++;
+  //   if (/[0-9]/.test(password)) strengthLevel++;
+  //   if (/[^A-Za-z0-9]/.test(password)) strengthLevel++;
+
+  //   if (strengthLevel === 1) setStrength("Too Weak!");
+  //   else if (strengthLevel === 2) setStrength("Weak");
+  //   else if (strengthLevel === 3) setStrength("Medium");
+  //   else if (strengthLevel >= 4) setStrength("Strong");
+  //   else setStrength("");
+  // };
+
+  // const handleGeneratePassword = (event) => {
+  //   const generatedPassword = "";
+  //   setPassword(generatedPassword);
+  //   calculateStrength(generatedPassword);
+  // };
+
   return (
     <div className="app">
       <header className="app__header">
@@ -61,13 +87,17 @@ function App() {
                   backgroundColor: "#e6e5ea",
                   width: 28,
                   height: 28,
+                  "&:hover": {
+                    backgroundColor: "#18171f",
+                    border: "2px solid #a4ffaf",
+                  },
                 },
               }}
             />
             <Checklist />
             <section className="password-strength">
               <p>Strength</p>
-              <div>Medium</div>
+              <StrengthBars />
             </section>
 
             <button className="form__btn" type="submit">

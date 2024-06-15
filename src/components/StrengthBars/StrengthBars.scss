@@ -1,0 +1,29 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.strength-bars {
+  display: flex;
+  gap: 0.5rem;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    p {
+      color: $pg-off-white;
+      @include body;
+      text-transform: uppercase;
+
+      @include tablet {
+        @include medium-heading;
+      }
+    }
+  }
+}
+
+.strength-bar {
+  border: 2px solid $pg-off-white;
+  width: 0.625rem;
+  height: 1.75rem;
+}
