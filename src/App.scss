@@ -72,6 +72,15 @@ html {
     }
   }
 
+  &__copy-text {
+    @include body;
+    text-transform: uppercase;
+    color: $pg-neon-green;
+    position: absolute;
+    top: 35%;
+    right: 4.25rem;
+  }
+
   &__copy-icon {
     position: absolute;
     top: 32%;
