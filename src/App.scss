@@ -22,12 +22,11 @@ html {
 }
 
 .app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
-  margin-top: 4rem;
-
-  @include tablet {
-    margin-top: 8rem;
-  }
+  min-height: 100vh;
 
   &__title {
     color: $pg-grey;
@@ -43,11 +42,11 @@ html {
   margin: 1rem;
 
   @include tablet {
-    margin: 2rem 7.125rem 12.25rem;
+    margin: 2rem 7.125rem 0;
   }
 
   @include desktop {
-    margin: 2rem 28rem 12.25rem;
+    margin: 2rem 28rem 0;
   }
 
   &__output-section {
