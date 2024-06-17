@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# Password Generator App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a solution to the [Password generator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/password-generator-app-Mr8CLycqjh).
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
 
-### `npm start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### The challenge
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Users should be able to:
 
-### `npm test`
+- Generate a password based on the selected inclusion options
+- Copy the generated password to the computer's clipboard
+- See a strength rating for their generated password
+- View the optimal layout for the interface depending on their device's screen size
+- See hover and focus states for all interactive elements on the page
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Screenshot
 
-### `npm run build`
+![](./src/assets/images/Screenshot%202024-06-16%20at%2011.29.24 PM.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Links
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Solution URL: [https://github.com/anitayawson/Password-Generator](https://github.com/anitayawson/Password-Generator)
+- Live Site URL: [https://password-generator-liart-one.vercel.app/](https://password-generator-liart-one.vercel.app/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## My process
 
-### `npm run eject`
+### Built with
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- Sass preprocessor
+- BEM class naming
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
+- [Material UI Components](https://mui.com/material-ui/all-components/) - For styles
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### What I learned
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+During this project, I enhanced my understanding of the Clipboard API, specifically the write() method, which allows copying text to the system's clipboard. Here’s the implementation:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```js
+const handleCopyPassword = () => {
+  navigator.clipboard.writeText(password).then(() => {
+    setPasswordCopied(true);
+    setTimeout(() => setPasswordCopied(false), 3000);
+  });
+};
+```
 
-## Learn More
+Additionally, developing a logic to calculate password strength was a unique challenge. The logic assesses the password based on its length and the presence of various character types (uppercase, lowercase, numbers, and symbols):
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```js
+const calculateStrength = (password) => {
+  let strengthLevel = 0;
+  if (password.length > 7) strengthLevel++;
+  if (/[A-Z]/.test(password)) strengthLevel++;
+  if (/[a-z]/.test(password)) strengthLevel++;
+  if (/[0-9]/.test(password)) strengthLevel++;
+  if (/[^A-Za-z0-9]/.test(password)) strengthLevel++;
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  if (strengthLevel === 1) setStrength("Too Weak!");
+  else if (strengthLevel === 2) setStrength("Weak");
+  else if (strengthLevel === 3) setStrength("Medium");
+  else if (strengthLevel >= 4) setStrength("Strong");
+  else setStrength("");
+};
+```
