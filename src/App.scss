@@ -83,8 +83,11 @@ html {
   &__copy-icon {
     position: absolute;
     top: 32%;
-    right: 1.5rem;
-    width: 17.5px;
+    right: 1.25rem;
+
+    svg path {
+      width: 17.5px;
+    }
 
     &:hover {
       cursor: pointer;
